@@ -1,0 +1,44 @@
+C:\Users\Ryan\Documents\Visual Studio 2012\Projects\YouZik\YouZik\bin\Debug\YouZik.exe.config
+C:\Users\Ryan\Documents\Visual Studio 2012\Projects\YouZik\YouZik\bin\Debug\YouZik.exe.manifest
+C:\Users\Ryan\Documents\Visual Studio 2012\Projects\YouZik\YouZik\bin\Debug\YouZik.application
+C:\Users\Ryan\Documents\Visual Studio 2012\Projects\YouZik\YouZik\bin\Debug\YouZik.exe
+C:\Users\Ryan\Documents\Visual Studio 2012\Projects\YouZik\YouZik\bin\Debug\YouZik.pdb
+C:\Users\Ryan\Documents\Visual Studio 2012\Projects\YouZik\YouZik\bin\Debug\Google.GData.Client.dll
+C:\Users\Ryan\Documents\Visual Studio 2012\Projects\YouZik\YouZik\bin\Debug\Google.GData.Extensions.dll
+C:\Users\Ryan\Documents\Visual Studio 2012\Projects\YouZik\YouZik\bin\Debug\Google.GData.YouTube.dll
+C:\Users\Ryan\Documents\Visual Studio 2012\Projects\YouZik\YouZik\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Ryan\Documents\Visual Studio 2012\Projects\YouZik\YouZik\obj\Debug\MainWindow.baml
+C:\Users\Ryan\Documents\Visual Studio 2012\Projects\YouZik\YouZik\obj\Debug\MainWindow.g.cs
+C:\Users\Ryan\Documents\Visual Studio 2012\Projects\YouZik\YouZik\obj\Debug\App.g.cs
+C:\Users\Ryan\Documents\Visual Studio 2012\Projects\YouZik\YouZik\obj\Debug\YouZik_MarkupCompile.cache
+C:\Users\Ryan\Documents\Visual Studio 2012\Projects\YouZik\YouZik\obj\Debug\YouZik.g.resources
+C:\Users\Ryan\Documents\Visual Studio 2012\Projects\YouZik\YouZik\obj\Debug\YouZik.Properties.Resources.resources
+C:\Users\Ryan\Documents\Visual Studio 2012\Projects\YouZik\YouZik\obj\Debug\YouZik.csproj.GenerateResource.Cache
+C:\Users\Ryan\Documents\Visual Studio 2012\Projects\YouZik\YouZik\obj\Debug\YouZik.exe.manifest
+C:\Users\Ryan\Documents\Visual Studio 2012\Projects\YouZik\YouZik\obj\Debug\YouZik.application
+C:\Users\Ryan\Documents\Visual Studio 2012\Projects\YouZik\YouZik\obj\Debug\YouZik.exe
+C:\Users\Ryan\Documents\Visual Studio 2012\Projects\YouZik\YouZik\obj\Debug\YouZik.pdb
+C:\Users\Ryan\Documents\Visual Studio 2012\Projects\YouZik\YouZik\obj\Debug\YouZik.csprojResolveAssemblyReference.cache
+C:\Users\Ryan\Documents\Visual Studio 2012\Projects\YouZik\YouZik\bin\Debug\Microsoft.QualityTools.Testing.Fakes.dll
+C:\Users\Ryan\Desktop\YouZik\YouZik\bin\Debug\YouZik.exe.config
+C:\Users\Ryan\Desktop\YouZik\YouZik\obj\Debug\YouZik.exe
+C:\Users\Ryan\Desktop\YouZik\YouZik\obj\Debug\YouZik.pdb
+C:\Users\Ryan\Desktop\YouZik\YouZik\bin\Debug\YouZik.exe.manifest
+C:\Users\Ryan\Desktop\YouZik\YouZik\bin\Debug\YouZik.application
+C:\Users\Ryan\Desktop\YouZik\YouZik\bin\Debug\YouZik.exe
+C:\Users\Ryan\Desktop\YouZik\YouZik\bin\Debug\YouZik.pdb
+C:\Users\Ryan\Desktop\YouZik\YouZik\bin\Debug\Google.GData.Client.dll
+C:\Users\Ryan\Desktop\YouZik\YouZik\bin\Debug\Google.GData.Extensions.dll
+C:\Users\Ryan\Desktop\YouZik\YouZik\bin\Debug\Google.GData.YouTube.dll
+C:\Users\Ryan\Desktop\YouZik\YouZik\bin\Debug\Microsoft.QualityTools.Testing.Fakes.dll
+C:\Users\Ryan\Desktop\YouZik\YouZik\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Ryan\Desktop\YouZik\YouZik\obj\Debug\YouZik.csprojResolveAssemblyReference.cache
+C:\Users\Ryan\Desktop\YouZik\YouZik\obj\Debug\MainWindow.baml
+C:\Users\Ryan\Desktop\YouZik\YouZik\obj\Debug\MainWindow.g.cs
+C:\Users\Ryan\Desktop\YouZik\YouZik\obj\Debug\App.g.cs
+C:\Users\Ryan\Desktop\YouZik\YouZik\obj\Debug\YouZik_MarkupCompile.cache
+C:\Users\Ryan\Desktop\YouZik\YouZik\obj\Debug\YouZik.g.resources
+C:\Users\Ryan\Desktop\YouZik\YouZik\obj\Debug\YouZik.Properties.Resources.resources
+C:\Users\Ryan\Desktop\YouZik\YouZik\obj\Debug\YouZik.csproj.GenerateResource.Cache
+C:\Users\Ryan\Desktop\YouZik\YouZik\obj\Debug\YouZik.exe.manifest
+C:\Users\Ryan\Desktop\YouZik\YouZik\obj\Debug\YouZik.application
