@@ -5,5 +5,5 @@ Instantly create a playlist from videos of your favorite artist's music on YouTu
 
 Features to Add
 ---------------
-*Add multiple queries
-*Save query playlists
+* Add multiple queries
+* Save query playlists
