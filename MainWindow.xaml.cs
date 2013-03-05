@@ -272,7 +272,12 @@ namespace YouZik
                     randomized[randomIndex] = true;
                 }
             }
-            songs = tmpSongs;
+            songs.Clear();
+            foreach (Song song in tmpSongs)
+            {
+                songs.Add(song);
+            }
+            SongList.SelectedIndex = 0;
         }
 
         //Triggered by the script handler
