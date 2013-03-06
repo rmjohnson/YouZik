@@ -305,10 +305,15 @@ namespace YouZik
 
         private void quit(object sender, RoutedEventArgs e)
         {
-            //To be implemented
+            this.Close(); //Close the window, exiting the program
         }
 
         private void copy(Object sender, RoutedEventArgs e)
+        {
+            //To be implemented
+        }
+
+        private void copyURL(Object sender, RoutedEventArgs e)
         {
             //To be implemented
         }
