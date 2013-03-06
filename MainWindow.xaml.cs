@@ -72,8 +72,11 @@ namespace YouZik
         public void search()
         {
             Song tmpSong;
-            //Clear all the previous songs in the SongList
-            //SongList.Items.Clear();
+            //Check if previous current artist is artist list, otherwise delete their songs
+            if (currentArtist != null && !currentArtist.saved)
+            {
+                deleteArtist(currentArtist);
+            }
 
             //Set the application name and API key and create the request
             YouTubeRequestSettings settings = new YouTubeRequestSettings("YouZik", "AI39si6y5lkNycte-kyM_2MiPgXYInjosqAhZomQEZvoibjxlweo0Nvk0vCLmN0Z0JX4f5QZavKOHrRNvYYQ04YdhyEqGsow7g");
@@ -235,25 +238,27 @@ namespace YouZik
 
         private void deleteArtistButton(object sender, RoutedEventArgs e)
         {
-            deleteArtist();
+            deleteArtist(artists[ArtistList.SelectedIndex], true);
         }
-        private void deleteArtist()
+
+        private void deleteArtist(Artist artist, Boolean fromArtistList = false)
         {
             List<int> removeList = new List<int>();
             //Loop through the songs and find any that are by the selected artist
             foreach (Song song in songs)
             {
-                if (song.artistID == artists[ArtistList.SelectedIndex].artistID)
+                if (song.artistID == artist.artistID)
                     removeList.Add(songs.IndexOf(song));
             }
             //Remove all of the ones that have been found (because removing in the original foreach loop is a no-no)
             //and start from the top of the list so the necessary indexes aren't moved once it is removed
-            removeList.Reverse(0,removeList.Count);
+            removeList.Reverse(0, removeList.Count);
             foreach (int index in removeList)
             {
                 songs.RemoveAt(index);
             }
-            artists.RemoveAt(ArtistList.SelectedIndex);
+            if (fromArtistList)
+                artists.RemoveAt(ArtistList.SelectedIndex);
         }
 
         //Triggered by the script handler
