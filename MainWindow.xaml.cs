@@ -37,10 +37,10 @@ namespace YouZik
     public partial class MainWindow : Window
     {
         List<String> videoIDs; //List of youtube video IDs, used to retrieve videos from youtube
-        List<ArtistVideos> artistVideos; //Youtube video IDs connected to their artists
+        ObservableCollection<Artist> artists; //Artist names list
         CefSharp.Wpf.WebView YouTubePlayer; //The webview used to display the youtube player
         public ObservableCollection<Song> songs = new ObservableCollection<Song>();
-        int artistCount;
+        Artist currentArtist;
 
         public MainWindow()
         {
@@ -50,9 +50,9 @@ namespace YouZik
             //Register the scripthelper as a JS object so javascript can access it's methods
             YouTubePlayer.RegisterJsObject("scripthelper", new ScriptHelper(this));
             BrowserGrid.Children.Add(YouTubePlayer); //Add the youtube player web view to its grid in the main window
-            artistVideos = new List<ArtistVideos>(); //Initialize the artist videos list
-            artistCount = 0;
+            artists = new ObservableCollection<Artist>(); //Initialize the artists list
             SongList.ItemsSource = songs;
+            ArtistList.ItemsSource = artists;
         }
 
         public void selectText()
@@ -87,15 +87,15 @@ namespace YouZik
             {
                 Feed<Video> videoFeed = request.Get<Video>(query); //Send the query and insert the results into videoFeed
                 videoIDs = new List<String>(); //Initialize the videoIDs list to an empty string list
-                artistCount++; //Increase the artistCount to get the artistID
+                currentArtist = new Artist(QueryBox.Text);
                 foreach (Video entry in videoFeed.Entries) //Loop through each entry in the results
                 {
                     //If the state is null is used because some videos have their embedded restrictions stored in the state
                     if (entry.YouTubeEntry.State == null)
                     {
                         videoIDs.Add(entry.VideoId); //Add the video ID to the video IDs list
-                        tmpSong = new Song(artistCount, entry.VideoId,entry.Title + " - " + toTimeCode(entry.Media.Duration.Seconds));
-                        if (artistCount == 1) //If it is the first artist, then the songs need to be added.
+                        tmpSong = new Song(currentArtist.artistID, entry.VideoId, entry.Title + " - " + toTimeCode(entry.Media.Duration.Seconds));
+                        if (artists.Count == 1) //If it is the first artist, then the songs need to be added.
                         {
                             songs.Add(tmpSong);
                         }
@@ -111,8 +111,6 @@ namespace YouZik
                 }
                 else //Otherwise...
                 {
-                    //ArtistList.Items.Add(QueryBox.Text);
-                    artistVideos.Add(new ArtistVideos(artistCount, QueryBox.Text, videoIDs));
                     SongList.SelectedIndex = 0; //Select the first song in the song list (it will automatically be played because of the newSong method)
                 }
             }
@@ -231,7 +229,7 @@ namespace YouZik
         }
         private void addArtist()
         {
-            ArtistList.Items.Add(QueryBox.Text);
+            artists.Add(currentArtist);
             QueryBox.Clear();
         }
 
@@ -241,7 +239,21 @@ namespace YouZik
         }
         private void deleteArtist()
         {
-            ArtistList.Items.RemoveAt(ArtistList.SelectedIndex);
+            List<int> removeList = new List<int>();
+            //Loop through the songs and find any that are by the selected artist
+            foreach (Song song in songs)
+            {
+                if (song.artistID == artists[ArtistList.SelectedIndex].artistID)
+                    removeList.Add(songs.IndexOf(song));
+            }
+            //Remove all of the ones that have been found (because removing in the original foreach loop is a no-no)
+            //and start from the top of the list so the necessary indexes aren't moved once it is removed
+            removeList.Reverse(0,removeList.Count);
+            foreach (int index in removeList)
+            {
+                songs.RemoveAt(index);
+            }
+            artists.RemoveAt(ArtistList.SelectedIndex);
         }
 
         //Triggered by the script handler
@@ -250,6 +262,7 @@ namespace YouZik
             Status.Content = "Finding next playable song..."; //Set the status message so the user knows what is going on
             nextSong(); //Play the next song
             songs.RemoveAt(SongList.SelectedIndex-1); //Remove the previous song from the song list
+            //Remove the song from the artist videos list
         }
 
         private void shuffleButton(object sender, RoutedEventArgs e)
@@ -339,19 +352,24 @@ namespace YouZik
                 }));
             }
         }
-    }    
-
-    public class ArtistVideos
+    }
+    public class Artist
     {
+        public static int artistCount = 0;
         public int artistID { get; set; }
         public String artistName { get; set; }
-        public List<String> videoIDs { get; set; }
+        public Boolean saved { get; set; }
 
-        public ArtistVideos(int artistID, String artistName, List<String> videoIDs)
+
+        public Artist(String artistName)
         {
-            this.artistID = artistID;
+            this.artistID = artistCount++;
             this.artistName = artistName;
-            this.videoIDs = videoIDs;
+            this.saved = false;
+        }
+        public override string ToString()
+        {
+            return this.artistName;
         }
     }
 
@@ -369,7 +387,7 @@ namespace YouZik
         }
         public override string ToString()
         {
-            return label;
+            return this.label;
         }
     }
 

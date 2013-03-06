@@ -1,6 +1,7 @@
 ﻿<Window x:Class="YouZik.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Icon="logo.ico"
         Title="YouZik" Height="540" Width="450" ResizeMode="NoResize">
     <Grid Margin="0,0,0,0">
         <TextBox Name="QueryBox" Height="23" Margin="10,10,99,0" TextWrapping="Wrap" Text="Artist" VerticalAlignment="Top" KeyDown="enterHandler"/>
