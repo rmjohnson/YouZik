@@ -71,9 +71,8 @@ namespace YouZik
         //The search method
         public void search()
         {
+            
             Song tmpSong;
-            //Clear all the previous songs in the SongList
-            //SongList.Items.Clear();
 
             //Set the application name and API key and create the request
             YouTubeRequestSettings settings = new YouTubeRequestSettings("YouZik", "AI39si6y5lkNycte-kyM_2MiPgXYInjosqAhZomQEZvoibjxlweo0Nvk0vCLmN0Z0JX4f5QZavKOHrRNvYYQ04YdhyEqGsow7g");
@@ -229,6 +228,7 @@ namespace YouZik
         }
         private void addArtist()
         {
+            currentArtist.saved = true;
             artists.Add(currentArtist);
             QueryBox.Clear();
         }
@@ -248,7 +248,7 @@ namespace YouZik
             }
             //Remove all of the ones that have been found (because removing in the original foreach loop is a no-no)
             //and start from the top of the list so the necessary indexes aren't moved once it is removed
-            removeList.Reverse(0,removeList.Count);
+            removeList.Reverse(0, removeList.Count);
             foreach (int index in removeList)
             {
                 songs.RemoveAt(index);
@@ -310,17 +310,27 @@ namespace YouZik
 
         private void copy(Object sender, RoutedEventArgs e)
         {
-            //To be implemented
+            if (QueryBox.SelectedText != "")
+                Clipboard.SetText(QueryBox.SelectedText);
+            else if (ArtistList.SelectedIndex > -1)
+                Clipboard.SetText(artists[ArtistList.SelectedIndex].artistName);
+            else if (SongList.SelectedIndex > -1)
+                Clipboard.SetText(songs[SongList.SelectedIndex].label);
         }
 
         private void copyURL(Object sender, RoutedEventArgs e)
         {
-            //To be implemented
+            
+            if(SongList.SelectedIndex > -1)
+            {
+                String videoID = songs[SongList.SelectedIndex].videoID;
+                Clipboard.SetText("http://www.youtube.com/watch?v=" + videoID);
+            }
         }
 
         private void paste(Object sender, RoutedEventArgs e)
         {
-            //To be implemented
+            QueryBox.Text = Clipboard.GetText();
         }
 
         private void help(Object sender, RoutedEventArgs e)
