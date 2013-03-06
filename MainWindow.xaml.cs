@@ -293,6 +293,41 @@ namespace YouZik
             SongList.SelectedIndex = 0;
         }
 
+        private void openPlaylist(object sender, RoutedEventArgs e)
+        {
+            //To be implemented
+        }
+
+        private void savePlaylist(object sender, RoutedEventArgs e)
+        {
+            //To be implemented
+        }
+
+        private void quit(object sender, RoutedEventArgs e)
+        {
+            //To be implemented
+        }
+
+        private void copy(Object sender, RoutedEventArgs e)
+        {
+            //To be implemented
+        }
+
+        private void paste(Object sender, RoutedEventArgs e)
+        {
+            //To be implemented
+        }
+
+        private void help(Object sender, RoutedEventArgs e)
+        {
+            //To be implemented
+        }
+
+        private void about(Object sender, RoutedEventArgs e)
+        {
+            //To be implemented
+        }
+
         //Triggered by the script handler
         public void setStatus(String status)
         {

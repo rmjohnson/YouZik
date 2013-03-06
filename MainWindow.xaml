@@ -18,18 +18,18 @@
         <DockPanel HorizontalAlignment="Left" Height="32" LastChildFill="False" Margin="9,0,0,0" VerticalAlignment="Top" Width="425">
             <Menu Height="22" VerticalAlignment="Top" Width="425">
                 <MenuItem Header="_File">
-                    <MenuItem Header="_Open Playlist" />
-                    <MenuItem Header="_Save Playlist" />
-                    <MenuItem Header="_Quit" />
+                    <MenuItem Header="_Open Playlist" Click="openPlaylist" />
+                    <MenuItem Header="_Save Playlist" Click="savePlaylist" />
+                    <MenuItem Header="_Quit"  Click="quit"/>
                 </MenuItem>
                 <MenuItem Header="_Edit">
-                    <MenuItem Header="_Copy" />
-                    <MenuItem Header="_Copy YouTube URL" />
-                    <MenuItem Header="_Paste" />
+                    <MenuItem Header="_Copy" Click="copy" />
+                    <MenuItem Header="_Copy YouTube URL" Click="copyURL" />
+                    <MenuItem Header="_Paste" Click="paste" />
                 </MenuItem>
                 <MenuItem Header="_Help">
-                    <MenuItem Header="_Help" />
-                    <MenuItem Header="_About" />
+                    <MenuItem Header="_Help" Click="help" />
+                    <MenuItem Header="_About" Click="about" />
                 </MenuItem>
             </Menu>
         </DockPanel>
