@@ -405,7 +405,9 @@ namespace YouZik
 
         private void about(Object sender, RoutedEventArgs e)
         {
-            //To be implemented
+            //View the about window
+            AboutWindow aboutWindow = new AboutWindow();
+            aboutWindow.Show();
         }
 
         //Triggered by the script handler

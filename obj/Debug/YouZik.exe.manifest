@@ -127,14 +127,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="YouZik.exe" size="568320">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="YouZik.exe" size="570368">
       <assemblyIdentity name="YouZik" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>129rnvMcfx6tb7GCMTWRR6IPooKuX8D90s2e46xRrLo=</dsig:DigestValue>
+        <dsig:DigestValue>5rJXjV/CWJdzYrgAHDKLX07gBYoMZyEeug5NlF7AsaM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -61,3 +61,5 @@ C:\Users\Ryan Johnson\Documents\Visual Studio 2012\Projects\YouZik\YouZik\obj\De
 C:\Users\Ryan Johnson\Documents\Visual Studio 2012\Projects\YouZik\YouZik\obj\Debug\YouZik.csproj.GenerateResource.Cache
 C:\Users\Ryan Johnson\Documents\Visual Studio 2012\Projects\YouZik\YouZik\obj\Debug\YouZik.exe.manifest
 C:\Users\Ryan Johnson\Documents\Visual Studio 2012\Projects\YouZik\YouZik\obj\Debug\YouZik.application
+C:\Users\Ryan Johnson\Documents\Visual Studio 2012\Projects\YouZik\YouZik\obj\Debug\AboutWindow.baml
+C:\Users\Ryan Johnson\Documents\Visual Studio 2012\Projects\YouZik\YouZik\obj\Debug\AboutWindow.g.cs
