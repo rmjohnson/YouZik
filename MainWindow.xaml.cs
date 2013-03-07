@@ -27,6 +27,9 @@ using System.Windows.Automation.Provider;
 using System.Windows.Threading;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using Microsoft.Win32;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace YouZik
 {
@@ -228,9 +231,16 @@ namespace YouZik
         }
         private void addArtist()
         {
-            currentArtist.saved = true;
-            artists.Add(currentArtist);
-            QueryBox.Clear();
+            if (currentArtist != null)
+            {
+                currentArtist.saved = true;
+                artists.Add(currentArtist);
+                QueryBox.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Please search for an artist before trying to add it.");
+            }
         }
 
         private void deleteArtistButton(object sender, RoutedEventArgs e)
@@ -295,12 +305,67 @@ namespace YouZik
 
         private void openPlaylist(object sender, RoutedEventArgs e)
         {
-            //To be implemented
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.DefaultExt = "yz";
+            dialog.Filter = "YouZik File (*.yz)|*.yz";
+            dialog.ShowDialog();
+            if (dialog.CheckFileExists)
+            {
+                try
+                {
+                    //Clear everything!
+                    this.songs.Clear();
+                    this.artists.Clear();
+                    this.QueryBox.Clear();
+
+                    String openLocation = dialog.FileName;
+                    using (Stream stream = File.Open(openLocation, FileMode.Open))
+                    {
+                        BinaryFormatter bin = new BinaryFormatter();
+                        YouZikFile yzf = (YouZikFile)bin.Deserialize(stream);
+                        foreach (Song song in yzf.songs)
+                        {
+                            this.songs.Add(song);
+                        }
+                        foreach (Artist artist in yzf.artists)
+                        {
+                            this.artists.Add(artist);
+                        }
+                    }
+                } 
+                catch(Exception ex) 
+                {
+                    MessageBox.Show("Please make sure you have selected a valid YouZik (.yz) file.");
+                }
+                //Start playing the first song
+                this.SongList.SelectedIndex = 0;
+            }
         }
 
         private void savePlaylist(object sender, RoutedEventArgs e)
         {
-            //To be implemented
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.DefaultExt = "yz";
+            dialog.Filter = "YouZik File (*.yz)|*.yz";
+            dialog.ShowDialog();
+            String saveLocation = dialog.FileName;
+            if (saveLocation != "")
+            {
+                try
+                {
+                    using (Stream stream = File.Open(saveLocation, FileMode.Create))
+                    {
+                        BinaryFormatter bin = new BinaryFormatter();
+                        YouZikFile yzf = new YouZikFile(this.songs, this.artists);
+                        bin.Serialize(stream, yzf);
+                    }
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Please make sure you have selected a valid location. Exception: " + ex.Message);
+                }
+            }
+
         }
 
         private void quit(object sender, RoutedEventArgs e)
@@ -403,6 +468,7 @@ namespace YouZik
             }
         }
     }
+    [Serializable()]
     public class Artist
     {
         public static int artistCount = 0;
@@ -423,6 +489,7 @@ namespace YouZik
         }
     }
 
+    [Serializable()]
     public class Song
     {
         public int artistID { get; set; }
@@ -441,4 +508,16 @@ namespace YouZik
         }
     }
 
+    [Serializable()]
+    public class YouZikFile
+    {
+        public ObservableCollection<Song> songs { get; set; }
+        public ObservableCollection<Artist> artists { get; set; }
+
+        public YouZikFile(ObservableCollection<Song> songs, ObservableCollection<Artist> artists)
+        {
+            this.songs = songs;
+            this.artists = artists;
+        }
+    }
 }
