@@ -1,0 +1,9 @@
+﻿<Window x:Class="YouZik.HelpWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="HelpWindow" Height="300" Width="300">
+    <Grid>
+        <TextBlock HorizontalAlignment="Center" FontFamily="Century Gothic" FontSize="48" TextWrapping="Wrap" Text="YouZik" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" FontFamily="Century Gothic" Text="YouZik is designed to allow users to instantly create musicp laylists from their favorite artists on YouTube. In order to help you do this more easily, I have created some simple help pages to explain the various features of YouZik. Please click on the link to feature that you would like to know more about." Margin="10,59,10,106" Height="105" Width="272" />
+    </Grid>
+</Window>

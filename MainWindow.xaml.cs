@@ -400,7 +400,9 @@ namespace YouZik
 
         private void help(Object sender, RoutedEventArgs e)
         {
-            //To be implemented
+            //View the help window
+            HelpWindow helpWindow = new HelpWindow();
+            helpWindow.Show();
         }
 
         private void about(Object sender, RoutedEventArgs e)
