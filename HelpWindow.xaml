@@ -4,6 +4,11 @@
         Title="HelpWindow" Height="300" Width="300">
     <Grid>
         <TextBlock HorizontalAlignment="Center" FontFamily="Century Gothic" FontSize="48" TextWrapping="Wrap" Text="YouZik" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" FontFamily="Century Gothic" Text="YouZik is designed to allow users to instantly create musicp laylists from their favorite artists on YouTube. In order to help you do this more easily, I have created some simple help pages to explain the various features of YouZik. Please click on the link to feature that you would like to know more about." Margin="10,59,10,106" Height="105" Width="272" />
+        <ComboBox Name="pageSelector" FontFamily="Century Gothic" Margin="57,59,0,190" HorizontalAlignment="Left" Width="185" SelectionChanged="changePage">
+            <ComboBoxItem Name="search">Basic Search</ComboBoxItem>
+            <ComboBoxItem Name="artists">Adding Multiple Artists</ComboBoxItem>
+            <ComboBoxItem Name="playlists">Saving Playlists</ComboBoxItem>
+        </ComboBox>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" FontFamily="Century Gothic" Text="YouZik is designed to allow users to instantly create musicp laylists from their favorite artists on YouTube. In order to help you do this more easily, I have created some simple help pages to explain the various features of YouZik. Please select a feature that you would like to know more about on the dropdown menu above." Margin="10,85,10,80" Height="105" Width="272" />
     </Grid>
 </Window>

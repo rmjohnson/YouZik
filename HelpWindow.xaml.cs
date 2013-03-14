@@ -23,5 +23,21 @@ namespace YouZik
         {
             InitializeComponent();
         }
+
+        private void changePage(object sender, SelectionChangedEventArgs e)
+        {
+            switch (pageSelector.SelectedIndex)
+            {
+                case 0:
+                    //Basic search
+                    break;
+                case 1:
+                    //Artists
+                    break;
+                case 2:
+                    //Playlists
+                    break;
+            }
+        }
     }
 }
